@@ -1,1 +1,1 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/bihxgnhkfdu4ftkd/branch/main?svg=true)](https://ci.appveyor.com/project/Kot-Zmot/auto-02-03-2/branch/main)
+[![Build status](https://ci.appveyor.com/api/projects/status/4l8y354vwqym2are/branch/main?svg=true)](https://ci.appveyor.com/project/Kot-Zmot/auto-02-04-1/branch/main)
