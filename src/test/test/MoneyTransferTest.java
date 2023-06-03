@@ -7,8 +7,6 @@ import org.junit.jupiter.api.Test;
 import ru.netology.data.DataHelper;
 import ru.netology.page.DashboardPage;
 import ru.netology.page.LoginPage;
-
-
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static ru.netology.data.DataHelper.*;
@@ -29,9 +27,8 @@ public class MoneyTransferTest {
         dashboardPage = verificationPage.validVerify(verificationCode);
     }
 
-
     @Test
-    public void shouldTransferMoneyFromFirstToSecond() {
+        public void shouldTransferMoneyFromFirstToSecond() {
         int amount = 5000;
         val cardBalance = dashboardPage;
         val firstCardBalanceStart = cardBalance.getCardBalance(1);
@@ -42,7 +39,6 @@ public class MoneyTransferTest {
         val secondCardBalanceFinish = secondCardBalanceStart + amount;
         assertEquals(firstCardBalanceFinish, cardBalance.getCardBalance(1));
         assertEquals(secondCardBalanceFinish, cardBalance.getCardBalance(2));
-
     }
 
     @Test
@@ -57,7 +53,6 @@ public class MoneyTransferTest {
         val secondCardBalanceFinish = secondCardBalanceStart - amount;
         assertEquals(firstCardBalanceFinish, cardBalance.getCardBalance(1));
         assertEquals(secondCardBalanceFinish, cardBalance.getCardBalance(2));
-
     }
 
     @Test
@@ -68,19 +63,14 @@ public class MoneyTransferTest {
         val transferPage = pushCardButton(2);
         transferPage.transferMoney(amount, getCard(2).getCardNumber());
         transferPage.unsuccessfulTransfer();
-
     }
 
     @Test
     public void shouldNotTransferMoreThanAvailable() {
         val cardBalance = dashboardPage;
         int amount = cardBalance.getCardBalance(1) + 1;
-
         val transferPage = pushCardButton(2);
         transferPage.transferMoney(amount, getCard(1).getCardNumber());
         transferPage.unsuccessfulTransfer();
-
     }
-
-
 }
